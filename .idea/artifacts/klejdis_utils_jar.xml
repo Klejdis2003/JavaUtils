@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="klejdis-utils:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/klejdis_utils_jar</output-path>
+    <root id="archive" name="klejdis-utils.jar">
+      <element id="module-output" name="klejdis-utils" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../BuddyLand/out/artifacts/BuddyLand_jar/BuddyLand.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
