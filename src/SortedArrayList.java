@@ -16,18 +16,40 @@ public class SortedArrayList<T extends Number> extends ArrayList<T> {
     SortedArrayList(){
         super();
     }
+
+    /**
+     * Adds the number at the correct position for the list to remain sorted form smallest to largest.
+     * @param number Should match the instance's data type.
+     * @return true.
+     */
     @Override
     public boolean add(T number){
         super.add(number);
         insertionSort();
         return true;
     }
+
+    /**
+     *@return The largest value in the list.
+     */
     public T getMaxValue(){
         return get(size()- 1);
     }
+
+    /**
+     * @return The smallest value in the list.
+     */
     public T getMinValue(){
         return get(0);
     }
+
+    /**
+     * Modified implementation of the insertionSort algorithm to work with sorted lists with only
+     * one element out of order.
+     * <br> <b>Worst Case:</b> O(n), the number is smaller than everything on the list.
+     * <br> <b>Average:</b> O(n), has to go through half the list on average.
+     * <br> <b>Best:</b> O(1), the added number is larger than the previous one.
+     */
     private void insertionSort(){
         if(size() == 0)
             return;
