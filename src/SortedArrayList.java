@@ -18,6 +18,27 @@ public class SortedArrayList<T extends Number> extends ArrayList<T> {
     }
 
     /**
+     * Modified implementation of the insertionSort algorithm to work with sorted lists with only
+     * one element out of order.
+     * <br> <b>Worst Case:</b> O(n), the number is smaller than everything on the list.
+     * <br> <b>Average:</b> O(n), has to go through half the list on average.
+     * <br> <b>Best:</b> O(1), the added number is larger than the previous one.
+     */
+    private void insertionSort(){
+        if(size() == 0)
+            return;
+
+        int pivot_index = size() - 1;
+        T pivot = get(pivot_index);
+        int j;
+        for(j = pivot_index-1; j >= 0 && get(j).doubleValue() > pivot.doubleValue(); j--){
+            set(j+1, get(j));
+
+        }
+        set(j+1, pivot);
+    }
+
+    /**
      * Adds the number at the correct position for the list to remain sorted form smallest to largest.
      * @param number Should match the instance's data type.
      * @return true.
@@ -43,26 +64,7 @@ public class SortedArrayList<T extends Number> extends ArrayList<T> {
         return get(0);
     }
 
-    /**
-     * Modified implementation of the insertionSort algorithm to work with sorted lists with only
-     * one element out of order.
-     * <br> <b>Worst Case:</b> O(n), the number is smaller than everything on the list.
-     * <br> <b>Average:</b> O(n), has to go through half the list on average.
-     * <br> <b>Best:</b> O(1), the added number is larger than the previous one.
-     */
-    private void insertionSort(){
-        if(size() == 0)
-            return;
 
-        int pivot_index = size() - 1;
-        T pivot = get(pivot_index);
-        int j;
-        for(j = pivot_index-1; j >= 0 && get(j).doubleValue() > pivot.doubleValue(); j--){
-            set(j+1, get(j));
-
-        }
-        set(j+1, pivot);
-    }
 
     /**
      * Uses binary search to find the passed number in the list.
@@ -85,6 +87,8 @@ public class SortedArrayList<T extends Number> extends ArrayList<T> {
         }
         return -1;
     }
+
+
 
 }
 
